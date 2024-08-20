@@ -10,21 +10,28 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background: linear-gradient(120deg, #000428, #004e92);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
         }
 
         header {
-            background-color: #333;
+            background-color: transparent;
             color: white;
             padding: 10px 0;
             text-align: center;
+            animation: slideIn 1s ease-out;
         }
 
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444;
+            background-color: rgba(0, 0, 0, 0.6);
             padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
@@ -32,11 +39,21 @@
             text-decoration: none;
             padding: 0 15px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff6347;
         }
 
         section {
             padding: 20px;
             margin: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
         }
 
         .intro {
@@ -50,38 +67,147 @@
         }
 
         .project {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #ddd;
             border-radius: 5px;
             margin: 10px;
             padding: 15px;
             width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
         }
 
         .resume {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 15px;
             margin: 10px;
+            animation: fadeInUp 1.2s forwards;
         }
 
         footer {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
             text-align: center;
             padding: 10px 0;
             position: fixed;
             width: 100%;
             bottom: 0;
+            animation: fadeInUp 1.5s forwards;
+        }
+
+        /* Starfield Background Animation */
+        @keyframes starAnimation {
+            from {
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-1000px);
+            }
+        }
+
+        .stars {
+            width: 2px;
+            height: 2px;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.7;
+            border-radius: 50%;
+            animation: starAnimation 20s linear infinite;
+        }
+
+        .stars:nth-child(odd) {
+            animation-duration: 25s;
+            animation-delay: -5s;
+        }
+
+        .stars:nth-child(even) {
+            animation-duration: 30s;
+            animation-delay: -10s;
+        }
+
+        .star-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2000px;
+            overflow: hidden;
+        }
+
+        /* Galaxy Background Color */
+        body {
+            background: radial-gradient(circle, #2c3e50, #000428);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        h1 {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
 
 <body>
+    <div class="star-container">
+        <!-- 100 Stars in the background -->
+        <div class="stars" style="left: 10%; top: 10%;"></div>
+        <div class="stars" style="left: 20%; top: 50%;"></div>
+        <div class="stars" style="left: 70%; top: 20%;"></div>
+        <div class="stars" style="left: 90%; top: 70%;"></div>
+        <div class="stars" style="left: 50%; top: 90%;"></div>
+        <!-- Add more stars as needed -->
+        <!-- You can generate more stars with random positions and animation speeds -->
+        <!-- Example: Add 95 more stars with different top, left values and duration -->
+    </div>
+
     <header>
         <h1>Md Nawaz Alam</h1>
-        <p>Welcome to my portfolio Page!</p>
+        <p>Welcome to my Galactic Portfolio Page!</p>
     </header>
 
     <nav>
@@ -116,12 +242,11 @@
 
     <section id="resume">
         <h2>Resume</h2>
-         <p>You can view or download my resume by clicking the link below:</p>
-    <a href="https://github.com/jugnu141/jugnu141.github.io/blob/main/resume.pdf" download>Download My Resume (PDF)</a>
-</section>
+        <p>You can view or download my resume by clicking the link below:</p>
+        <a href="https://github.com/jugnu141/jugnu141.github.io/blob/main/resume.pdf" download>Download My Resume (PDF)</a>
         <div class="resume">
             <h3>Education</h3>
-            <p><strong>Bachelor of Technology in Electronics And Communication Engineering</strong><br>Jaypee Institute Of Information Technology,Noida, 2023-2027</p>
+            <p><strong>Bachelor of Technology in Electronics And Communication Engineering</strong><br>Jaypee Institute Of Information Technology, Noida, 2023-2027</p>
 
             <h3>Work Experience</h3>
             <p><strong>Data Engineer</strong><br>Virtusa, 2024-Present</p>
